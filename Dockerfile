@@ -25,11 +25,10 @@ WORKDIR /home/audiogram
 ADD . /home/audiogram
 WORKDIR /home/audiogram
 
-RUN mkdir -p editor/js
-
 # Install dependencies
 RUN npm install
 
 USER root
 RUN npm install -g browserify@13.0.0
+RUN mkdir -p editor/js
 RUN browserify client/index.js > editor/js/bundle.js
